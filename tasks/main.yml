@@ -1,0 +1,31 @@
+---
+# tasks file for hswong3i.php
+
+- name: apt-add-repository
+  apt_repository:
+    repo="{{ item }}"
+    state=present
+  with_items:
+    - ppa:ondrej/php-7.0
+  tags: hswong3i.php
+
+- name: apt-get install
+  apt:
+    name="{{ item }}"
+    state=latest
+  with_items:
+    - php7.0
+    - php7.0-cli
+    - php7.0-curl
+    - php7.0-gd
+    - php7.0-imap
+    - php7.0-intl
+    - php7.0-json
+    - php7.0-ldap
+    - php7.0-mysql
+    - php7.0-opcache
+    - php7.0-pgsql
+    - php7.0-snmp
+    - php7.0-sqlite3
+    - php7.0-tidy
+  tags: hswong3i.php
