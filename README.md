@@ -1,5 +1,5 @@
-Ansible Role for Java
-=====================
+Ansible Role for PHP
+====================
 
 [![Build Status](https://travis-ci.org/pantarei/ansible-role-php.svg?branch=master)](https://travis-ci.org/pantarei/ansible-role-php)
  [![GitHub tag](https://img.shields.io/github/tag/pantarei/ansible-role-php.svg)](https://github.com/pantarei/ansible-role-php)
