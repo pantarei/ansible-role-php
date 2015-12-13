@@ -14,19 +14,21 @@
     name="{{ item }}"
     state=latest
   with_items:
-    - php7.0-cli
-    - php7.0-curl
-    - php7.0-gd
-    - php7.0-imap
-    - php7.0-intl
-    - php7.0-json
-    - php7.0-ldap
-    - php7.0-mysql
-    - php7.0-opcache
-    - php7.0-pgsql
-    - php7.0-snmp
-    - php7.0-sqlite3
-    - php7.0-tidy
+    - php-apcu
+    - php-cli
+    - php-curl
+    - php-gd
+    - php-imap
+    - php-intl
+    - php-json
+    - php-ldap
+    - php-mysql
+    - php-opcache
+    - php-pgsql
+    - php-snmp
+    - php-sqlite3
+    - php-tidy
+    - php-xdebug
   tags: hswong3i.php
 
 - name: copy templates
