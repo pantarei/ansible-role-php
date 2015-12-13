@@ -135,18 +135,32 @@ Role Variables
 <td align="left">Sets max size of post data allowed.</td>
 </tr>
 <tr class="odd">
+<td align="left">php_upload_tmp_dir</td>
+<td align="left">yes</td>
+<td align="left">/tmp</td>
+<td align="left"></td>
+<td align="left">The temporary directory used for storing files when doing file upload.</td>
+</tr>
+<tr class="even">
 <td align="left">php_upload_max_filesize</td>
 <td align="left">yes</td>
 <td align="left">32M</td>
 <td align="left"></td>
 <td align="left">The maximum size of an uploaded file.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">php_date_timezone</td>
 <td align="left">yes</td>
 <td align="left">Etc/UTC</td>
 <td align="left"></td>
 <td align="left">The default timezone used by all date/time functions.</td>
+</tr>
+<tr class="even">
+<td align="left">php_session_save_path</td>
+<td align="left">yes</td>
+<td align="left">/tmp</td>
+<td align="left"></td>
+<td align="left">Defines the argument which is passed to the save handler.</td>
 </tr>
 </tbody>
 </table>

@@ -15,6 +15,7 @@ php_report_memleaks: 'On'
 php_track_errors: 'Off'
 php_html_errors: 'On'
 php_post_max_size: 32M
-php_sys_temp_dir: '/tmp'
+php_upload_tmp_dir: '/tmp'
 php_upload_max_filesize: 32M
 php_date_timezone: 'Etc/UTC'
+php_session_save_path: '/tmp'
