@@ -28,7 +28,6 @@
     - php-snmp
     - php-sqlite3
     - php-tidy
-    - php-xdebug
   tags: hswong3i.php
 
 - name: copy templates
