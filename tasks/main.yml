@@ -3,10 +3,12 @@
 
 - name: apt-add-repository
   apt_repository:
-    repo="{{ item }}"
-    state=present
+    repo="{{ item.repo }}"
+    state="{{ item.state }}"
   with_items:
-    - ppa:ondrej/php-7.0
+    - { repo: 'ppa:ondrej/php', state: 'present' }
+    - { repo: 'ppa:ondrej/php-7.0', state: 'absent' }
+  notify: restart php
   tags: hswong3i.php
 
 - name: apt-get install
@@ -15,19 +17,24 @@
     state=latest
   with_items:
     - php-apcu
-    - php-cli
-    - php-curl
-    - php-gd
-    - php-imap
-    - php-intl
-    - php-json
-    - php-ldap
-    - php-mysql
-    - php-opcache
-    - php-pgsql
-    - php-snmp
-    - php-sqlite3
-    - php-tidy
+    - php-uuid
+    - php7.0
+    - php7.0-cli
+    - php7.0-curl
+    - php7.0-fpm
+    - php7.0-gd
+    - php7.0-imap
+    - php7.0-intl
+    - php7.0-json
+    - php7.0-ldap
+    - php7.0-mcrypt
+    - php7.0-mysql
+    - php7.0-opcache
+    - php7.0-pgsql
+    - php7.0-snmp
+    - php7.0-sqlite3
+    - php7.0-tidy
+  notify: restart php
   tags: hswong3i.php
 
 - name: copy templates
@@ -39,4 +46,8 @@
     mode={{ item.mode }}
   with_items:
     - { src: 'etc/php/7.0/cli/php.ini.j2', dest: '/etc/php/7.0/cli/php.ini',  owner: 'root', group: 'root', mode: '0644' }
+    - { src: 'etc/php/7.0/fpm/php-fpm.conf.j2', dest: '/etc/php/7.0/fpm/php-fpm.conf', owner: 'root', group: 'root', mode: '0644' }
+    - { src: 'etc/php/7.0/fpm/php.ini.j2', dest: '/etc/php/7.0/fpm/php.ini', owner: 'root', group: 'root', mode: '0644' }
+    - { src: 'etc/php/7.0/fpm/pool.d/www.conf.j2', dest: '/etc/php/7.0/fpm/pool.d/www.conf', owner: 'root', group: 'root', mode: '0644' }
+  notify: restart php
   tags: hswong3i.php
