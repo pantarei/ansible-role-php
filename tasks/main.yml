@@ -3,10 +3,11 @@
 
 - name: apt-add-repository
   apt_repository:
-    repo="{{ item }}"
-    state=present
+    repo="{{ item.repo }}"
+    state="{{ item.state }}"
   with_items:
-    - ppa:ondrej/php-7.0
+    - { repo: 'ppa:ondrej/php', state: 'present' }
+    - { repo: 'ppa:ondrej/php-7.0', state: 'absent' }
   notify: restart php
   tags: hswong3i.php
 
