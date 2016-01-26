@@ -6,8 +6,8 @@
     repo={{ item.repo }}
     state={{ item.state }}
   with_items:
-    - { repo: 'ppa:ondrej/php', state: 'present' }
-    - { repo: 'ppa:ondrej/php-7.0', state: 'absent' }
+    - { state: 'absent', repo: 'ppa:ondrej/php-7.0' }
+    - { state: 'present', repo: 'ppa:ondrej/php' }
   notify: restart php
   tags: hswong3i.php
 
@@ -16,26 +16,26 @@
     name={{ item.name }}
     state={{ item.state }}
   with_items:
-    - { name: 'libapache2-mod-php7.0', state: 'absent' }
-    - { name: 'php-apcu', state: 'latest' }
-    - { name: 'php-apcu-bc', state: 'latest' }
-    - { name: 'php-uuid', state: 'latest' }
-    - { name: 'php7.0', state: 'latest' }
-    - { name: 'php7.0-cli', state: 'latest' }
-    - { name: 'php7.0-curl', state: 'latest' }
-    - { name: 'php7.0-fpm', state: 'latest' }
-    - { name: 'php7.0-gd', state: 'latest' }
-    - { name: 'php7.0-imap', state: 'latest' }
-    - { name: 'php7.0-intl', state: 'latest' }
-    - { name: 'php7.0-json', state: 'latest' }
-    - { name: 'php7.0-ldap', state: 'latest' }
-    - { name: 'php7.0-mcrypt', state: 'latest' }
-    - { name: 'php7.0-mysql', state: 'latest' }
-    - { name: 'php7.0-opcache', state: 'latest' }
-    - { name: 'php7.0-pgsql', state: 'latest' }
-    - { name: 'php7.0-snmp', state: 'latest' }
-    - { name: 'php7.0-sqlite3', state: 'latest' }
-    - { name: 'php7.0-tidy', state: 'latest' }
+    - { state: 'absent', name: 'libapache2-mod-php7.0' }
+    - { state: 'absent', name: 'php7.0' }
+    - { state: 'latest', name: 'php-apcu' }
+    - { state: 'latest', name: 'php-apcu-bc' }
+    - { state: 'latest', name: 'php-uuid' }
+    - { state: 'latest', name: 'php7.0-cli' }
+    - { state: 'latest', name: 'php7.0-curl' }
+    - { state: 'latest', name: 'php7.0-fpm' }
+    - { state: 'latest', name: 'php7.0-gd' }
+    - { state: 'latest', name: 'php7.0-imap' }
+    - { state: 'latest', name: 'php7.0-intl' }
+    - { state: 'latest', name: 'php7.0-json' }
+    - { state: 'latest', name: 'php7.0-ldap' }
+    - { state: 'latest', name: 'php7.0-mcrypt' }
+    - { state: 'latest', name: 'php7.0-mysql' }
+    - { state: 'latest', name: 'php7.0-opcache' }
+    - { state: 'latest', name: 'php7.0-pgsql' }
+    - { state: 'latest', name: 'php7.0-snmp' }
+    - { state: 'latest', name: 'php7.0-sqlite3' }
+    - { state: 'latest', name: 'php7.0-tidy' }
   notify: restart php
   tags: hswong3i.php
 
