@@ -16,6 +16,7 @@
     name={{ item.name }}
     state={{ item.state }}
   with_items:
+    - { name: 'libapache2-mod-php7.0', state: 'absent' }
     - { name: 'php-apcu', state: 'latest' }
     - { name: 'php-apcu-bc', state: 'latest' }
     - { name: 'php-uuid', state: 'latest' }
