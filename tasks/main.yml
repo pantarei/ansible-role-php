@@ -31,6 +31,7 @@
     - { state: 'latest', name: 'php5.6-intl' }
     - { state: 'latest', name: 'php5.6-json' }
     - { state: 'latest', name: 'php5.6-ldap' }
+    - { state: 'latest', name: 'php5.6-mbstring' }
     - { state: 'latest', name: 'php5.6-mcrypt' }
     - { state: 'latest', name: 'php5.6-mysql' }
     - { state: 'latest', name: 'php5.6-opcache' }
@@ -47,6 +48,7 @@
     - { state: 'latest', name: 'php7.0-intl' }
     - { state: 'latest', name: 'php7.0-json' }
     - { state: 'latest', name: 'php7.0-ldap' }
+    - { state: 'latest', name: 'php7.0-mbstring' }
     - { state: 'latest', name: 'php7.0-mcrypt' }
     - { state: 'latest', name: 'php7.0-mysql' }
     - { state: 'latest', name: 'php7.0-opcache' }
