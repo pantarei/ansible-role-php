@@ -63,6 +63,7 @@
     - { state: "latest", name: "php7.0-tidy" }
     - { state: "latest", name: "php7.0-xml" }
     - { state: "latest", name: "php7.0-zip" }
+    - { state: "latest", name: "snmp-mibs-downloader" }
   notify: restart php
   tags: hswong3i.php
 
