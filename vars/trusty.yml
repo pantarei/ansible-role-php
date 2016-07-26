@@ -46,6 +46,7 @@ _apt: [
   { state: "latest", name: "php7.0-mbstring" },
   { state: "latest", name: "php7.0-mcrypt" },
   { state: "latest", name: "php7.0-mysql" },
+  { state: "latest", name: "php7.0-xml" },
 ]
 _php_template: [
   { src: "etc/php/5.6/cli/php.ini.j2", dest: "/etc/php/5.6/cli/php.ini",  owner: "root", group: "root", mode: "0644" },
