@@ -9,7 +9,7 @@
   apt_repository:
     repo: "{{ item.repo }}"
     state: "{{ item.state }}"
-  with_items: "{{ _apt_repository_repo }}"
+  with_items: "{{ _apt_repository }}"
   notify: restart php
   tags: hswong3i.php
 
@@ -17,7 +17,7 @@
   apt:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
-  with_items: "{{ _apt_name }}"
+  with_items: "{{ _apt }}"
   notify: restart php
   tags: hswong3i.php
 

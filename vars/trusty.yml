@@ -1,11 +1,11 @@
 ---
 # vars file for hswong3i.php (trusty)
 
-_apt_repository_repo: [
+_apt_repository: [
   { state: "absent", repo: "ppa:ondrej/php-7.0" },
   { state: "present", repo: "ppa:ondrej/php" },
 ]
-_apt_name: [
+_apt: [
   { state: "absent", name: "libapache2-mod-php5.6" },
   { state: "absent", name: "libapache2-mod-php7.0" },
   { state: "absent", name: "php5.5-common" },
