@@ -1,13 +1,15 @@
 ---
 # tasks file for hswong3i.php
 
+- name: include release specific variables
+  include_vars: "{{ ansible_distribution_release }}.yml"
+  tags: hswong3i.php
+
 - name: apt-add-repository
   apt_repository:
     repo: "{{ item.repo }}"
     state: "{{ item.state }}"
-  with_items:
-    - { state: "absent", repo: "ppa:ondrej/php-7.0" }
-    - { state: "present", repo: "ppa:ondrej/php" }
+  with_items: "{{ _apt_repository_repo }}"
   notify: restart php
   tags: hswong3i.php
 
@@ -15,54 +17,7 @@
   apt:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
-  with_items:
-    - { state: "absent", name: "libapache2-mod-php5.6" }
-    - { state: "absent", name: "libapache2-mod-php7.0" }
-    - { state: "absent", name: "php5.5-common" }
-    - { state: "absent", name: "php5.6" }
-    - { state: "absent", name: "php7.0" }
-    - { state: "latest", name: "php-apcu" }
-    - { state: "latest", name: "php-apcu-bc" }
-    - { state: "latest", name: "php-memcache" }
-    - { state: "latest", name: "php-uuid" }
-    - { state: "latest", name: "php5.6-bcmath" }
-    - { state: "latest", name: "php5.6-cli" }
-    - { state: "latest", name: "php5.6-curl" }
-    - { state: "latest", name: "php5.6-fpm" }
-    - { state: "latest", name: "php5.6-gd" }
-    - { state: "latest", name: "php5.6-imap" }
-    - { state: "latest", name: "php5.6-intl" }
-    - { state: "latest", name: "php5.6-json" }
-    - { state: "latest", name: "php5.6-ldap" }
-    - { state: "latest", name: "php5.6-mbstring" }
-    - { state: "latest", name: "php5.6-mcrypt" }
-    - { state: "latest", name: "php5.6-mysql" }
-    - { state: "latest", name: "php5.6-opcache" }
-    - { state: "latest", name: "php5.6-pgsql" }
-    - { state: "latest", name: "php5.6-snmp" }
-    - { state: "latest", name: "php5.6-sqlite3" }
-    - { state: "latest", name: "php5.6-tidy" }
-    - { state: "latest", name: "php5.6-xml" }
-    - { state: "latest", name: "php5.6-zip" }
-    - { state: "latest", name: "php7.0-bcmath" }
-    - { state: "latest", name: "php7.0-cli" }
-    - { state: "latest", name: "php7.0-curl" }
-    - { state: "latest", name: "php7.0-fpm" }
-    - { state: "latest", name: "php7.0-gd" }
-    - { state: "latest", name: "php7.0-imap" }
-    - { state: "latest", name: "php7.0-intl" }
-    - { state: "latest", name: "php7.0-json" }
-    - { state: "latest", name: "php7.0-ldap" }
-    - { state: "latest", name: "php7.0-mbstring" }
-    - { state: "latest", name: "php7.0-mcrypt" }
-    - { state: "latest", name: "php7.0-mysql" }
-    - { state: "latest", name: "php7.0-opcache" }
-    - { state: "latest", name: "php7.0-pgsql" }
-    - { state: "latest", name: "php7.0-snmp" }
-    - { state: "latest", name: "php7.0-sqlite3" }
-    - { state: "latest", name: "php7.0-tidy" }
-    - { state: "latest", name: "php7.0-xml" }
-    - { state: "latest", name: "php7.0-zip" }
+  with_items: "{{ _apt_name }}"
   notify: restart php
   tags: hswong3i.php
 
@@ -86,14 +41,6 @@
     owner: "{{ item.owner }}"
     group: "{{ item.group }}"
     mode: "{{ item.mode }}"
-  with_items:
-    - { src: "etc/php/5.6/cli/php.ini.j2", dest: "/etc/php/5.6/cli/php.ini",  owner: "root", group: "root", mode: "0644" }
-    - { src: "etc/php/5.6/fpm/php-fpm.conf.j2", dest: "/etc/php/5.6/fpm/php-fpm.conf", owner: "root", group: "root", mode: "0644" }
-    - { src: "etc/php/5.6/fpm/php.ini.j2", dest: "/etc/php/5.6/fpm/php.ini", owner: "root", group: "root", mode: "0644" }
-    - { src: "etc/php/5.6/fpm/pool.d/www.conf.j2", dest: "/etc/php/5.6/fpm/pool.d/www.conf", owner: "root", group: "root", mode: "0644" }
-    - { src: "etc/php/7.0/cli/php.ini.j2", dest: "/etc/php/7.0/cli/php.ini",  owner: "root", group: "root", mode: "0644" }
-    - { src: "etc/php/7.0/fpm/php-fpm.conf.j2", dest: "/etc/php/7.0/fpm/php-fpm.conf", owner: "root", group: "root", mode: "0644" }
-    - { src: "etc/php/7.0/fpm/php.ini.j2", dest: "/etc/php/7.0/fpm/php.ini", owner: "root", group: "root", mode: "0644" }
-    - { src: "etc/php/7.0/fpm/pool.d/www.conf.j2", dest: "/etc/php/7.0/fpm/pool.d/www.conf", owner: "root", group: "root", mode: "0644" }
+  with_items: "{{ _php_template }}"
   notify: restart php
   tags: hswong3i.php
