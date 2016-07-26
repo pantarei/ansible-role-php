@@ -1,0 +1,33 @@
+---
+# vars file for hswong3i.php (xenial)
+
+_apt_repository: []
+_apt: [
+  { state: "absent", name: "libapache2-mod-php7.0" },
+  { state: "absent", name: "php7.0" },
+  { state: "latest", name: "php-apcu" },
+  { state: "latest", name: "php-memcache" },
+  { state: "latest", name: "php-uuid" },
+  { state: "latest", name: "php7.0-bcmath" },
+  { state: "latest", name: "php7.0-cli" },
+  { state: "latest", name: "php7.0-curl" },
+  { state: "latest", name: "php7.0-fpm" },
+  { state: "latest", name: "php7.0-gd" },
+  { state: "latest", name: "php7.0-imap" },
+  { state: "latest", name: "php7.0-intl" },
+  { state: "latest", name: "php7.0-json" },
+  { state: "latest", name: "php7.0-ldap" },
+  { state: "latest", name: "php7.0-mbstring" },
+  { state: "latest", name: "php7.0-mcrypt" },
+  { state: "latest", name: "php7.0-mysql" },
+  { state: "latest", name: "php7.0-xml" },
+]
+_php_template: [
+  { src: "etc/php/7.0/cli/php.ini.j2", dest: "/etc/php/7.0/cli/php.ini",  owner: "root", group: "root", mode: "0644" },
+  { src: "etc/php/7.0/fpm/php-fpm.conf.j2", dest: "/etc/php/7.0/fpm/php-fpm.conf", owner: "root", group: "root", mode: "0644" },
+  { src: "etc/php/7.0/fpm/php.ini.j2", dest: "/etc/php/7.0/fpm/php.ini", owner: "root", group: "root", mode: "0644" },
+  { src: "etc/php/7.0/fpm/pool.d/www.conf.j2", dest: "/etc/php/7.0/fpm/pool.d/www.conf", owner: "root", group: "root", mode: "0644" },
+]
+_php_service: [
+  { name: php7.0-fpm, state: "restarted" },
+]
