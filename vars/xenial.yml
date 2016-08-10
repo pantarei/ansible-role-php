@@ -30,9 +30,11 @@ _apt: [
   { state: "latest", name: "php5.6-opcache" },
   { state: "latest", name: "php5.6-pgsql" },
   { state: "latest", name: "php5.6-snmp" },
+  { state: "latest", name: "php5.6-soap" },
   { state: "latest", name: "php5.6-sqlite3" },
   { state: "latest", name: "php5.6-tidy" },
   { state: "latest", name: "php5.6-xml" },
+  { state: "latest", name: "php5.6-xmlrpc" },
   { state: "latest", name: "php5.6-zip" },
   { state: "latest", name: "php7.0-bcmath" },
   { state: "latest", name: "php7.0-cli" },
@@ -46,7 +48,10 @@ _apt: [
   { state: "latest", name: "php7.0-mbstring" },
   { state: "latest", name: "php7.0-mcrypt" },
   { state: "latest", name: "php7.0-mysql" },
+  { state: "latest", name: "php7.0-soap" },
   { state: "latest", name: "php7.0-xml" },
+  { state: "latest", name: "php7.0-xmlrpc" },
+  { state: "latest", name: "php7.0-zip" },
 ]
 _php_template: [
   { src: "etc/php/5.6/cli/php.ini.j2", dest: "/etc/php/5.6/cli/php.ini",  owner: "root", group: "root", mode: "0644" },
