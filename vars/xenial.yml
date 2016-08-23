@@ -92,6 +92,7 @@ _php_module: [
   { state: "present", name: "tokenizer" },
   { state: "present", name: "uuid" },
   { state: "present", name: "wddx" },
+  { state: "present", name: "xml" },
   { state: "present", name: "xmlreader" },
   { state: "present", name: "xmlrpc" },
   { state: "present", name: "xmlwriter" },
