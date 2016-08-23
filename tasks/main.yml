@@ -51,3 +51,21 @@
     - { src: "etc/php/7.0/fpm/pool.d/www.conf.j2", dest: "/etc/php/7.0/fpm/pool.d/www.conf", owner: "root", group: "root", mode: "0644" }
   notify: restart php
   tags: hswong3i.php
+
+- name: enable module
+  php_module:
+    name: "{{ item.name }}"
+    state: "{{ item.state }}"
+  with_items: "{{ (_php_module + php_module) | unique }}"
+  notify: restart php
+  tags: hswong3i.php
+
+- name: enable service
+  service:
+    name: "{{ item.name }}"
+    enabled: "{{ item.enabled }}"
+  with_items:
+    - { name: "php5.6-fpm", enabled: "yes" }
+    - { name: "php7.0-fpm", enabled: "yes" }
+  notify: restart php
+  tags: hswong3i.php

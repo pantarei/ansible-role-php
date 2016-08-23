@@ -19,3 +19,8 @@ php_short_open_tag: "Off"
 php_track_errors: "Off"
 php_upload_max_filesize: "32M"
 php_upload_tmp_dir: "/tmp"
+
+php_module: [
+#  { state: "absent", name: "xmlrpc" },
+#  { state: "present", name: "gd" },
+]
