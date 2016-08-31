@@ -29,8 +29,6 @@
     state: "{{ item.state }}"
   with_items:
     - { dest: "/etc/php", owner: "root", group: "root", mode: "0755", state: "directory" }
-    - { dest: "/etc/php/5.5", owner: "root", group: "root", mode: "0755", state: "absent" }
-    - { dest: "/etc/php/7.0", owner: "root", group: "root", mode: "0755", state: "absent" }
     - { dest: "/run/php", owner: "www-data", group: "www-data", mode: "0755", state: "directory" }
   notify: restart php
   tags: hswong3i.php
@@ -47,6 +45,10 @@
     - { src: "etc/php/5.6/fpm/php-fpm.conf.j2", dest: "/etc/php/5.6/fpm/php-fpm.conf", owner: "root", group: "root", mode: "0644" }
     - { src: "etc/php/5.6/fpm/php.ini.j2", dest: "/etc/php/5.6/fpm/php.ini", owner: "root", group: "root", mode: "0644" }
     - { src: "etc/php/5.6/fpm/pool.d/www.conf.j2", dest: "/etc/php/5.6/fpm/pool.d/www.conf", owner: "root", group: "root", mode: "0644" }
+    - { src: "etc/php/7.0/cli/php.ini.j2", dest: "/etc/php/7.0/cli/php.ini",  owner: "root", group: "root", mode: "0644" }
+    - { src: "etc/php/7.0/fpm/php-fpm.conf.j2", dest: "/etc/php/7.0/fpm/php-fpm.conf", owner: "root", group: "root", mode: "0644" }
+    - { src: "etc/php/7.0/fpm/php.ini.j2", dest: "/etc/php/7.0/fpm/php.ini", owner: "root", group: "root", mode: "0644" }
+    - { src: "etc/php/7.0/fpm/pool.d/www.conf.j2", dest: "/etc/php/7.0/fpm/pool.d/www.conf", owner: "root", group: "root", mode: "0644" }
     - { src: "etc/php/7.1/cli/php.ini.j2", dest: "/etc/php/7.1/cli/php.ini",  owner: "root", group: "root", mode: "0644" }
     - { src: "etc/php/7.1/fpm/php-fpm.conf.j2", dest: "/etc/php/7.1/fpm/php-fpm.conf", owner: "root", group: "root", mode: "0644" }
     - { src: "etc/php/7.1/fpm/php.ini.j2", dest: "/etc/php/7.1/fpm/php.ini", owner: "root", group: "root", mode: "0644" }
@@ -68,6 +70,7 @@
     enabled: "{{ item.enabled }}"
   with_items:
     - { name: "php5.6-fpm", enabled: "yes" }
+    - { name: "php7.0-fpm", enabled: "yes" }
     - { name: "php7.1-fpm", enabled: "yes" }
   notify: restart php
   tags: hswong3i.php
