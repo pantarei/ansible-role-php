@@ -9,6 +9,7 @@ _apt: [
   { state: "absent", name: "libapache2-mod-php5.6" },
   { state: "absent", name: "libapache2-mod-php7.0" },
   { state: "absent", name: "libapache2-mod-php7.1" },
+  { state: "absent", name: "libtidy-0.99-0" },
   { state: "absent", name: "libtidy0" },
   { state: "absent", name: "php5.5-common" },
   { state: "absent", name: "php5.6" },
