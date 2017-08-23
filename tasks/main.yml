@@ -30,7 +30,8 @@
   with_items:
     - { dest: "/etc/php", owner: "root", group: "root", mode: "0755", state: "directory" }
     - { dest: "/run/php", owner: "www-data", group: "www-data", mode: "0755", state: "directory" }
-    - { dest: "/var/log/php", owner: "root", group: "root", mode: "0755", state: "directory" }
+    - { dest: "/var/log/php", owner: "root", group: "root", mode: "0711", state: "directory" }
+    - { dest: "/var/log/php/vhosts", owner: "root", group: "root", mode: "0711", state: "directory" }
   notify: restart php
   tags: hswong3i.php
 
